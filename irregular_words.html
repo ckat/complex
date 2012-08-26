@@ -1,125 +1,200 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<script language="javascript">
-top_words = 20;
-irregularVerbs = [
-['be','was / were','been'],
-['become','became','become'],
-['begin','began','begun'],
-['bring','brought','brought'],
-['buy','bought','bought'],
-['choose','chose','chosen'],
-['come','came','come'],
-['do','did','done'],
-['drink','drank','drunk'],
-['drive','drove','driven'],
-['eat','ate','eaten'],
-['fall','fell','fallen'],
-['feel','felt','felt'],
-['find','found','found'],
-['fly','flew','flown'],
-['forget','forgot','forgotten'],
-['get','got','got'],
-['give','gave','given'],
-['go','went','gone'],
-['have','had','had'],
-['hear','heard','heard'],
-['keep','kept','kept'],
-['know','knew','known'],
-['leave','left','left'],
-['lend','lent','lent'],
-['let','let','let'],
-['lose','lost','lost'],
-['make','made','made'],
-['meet','met','met'],
-['pay','paid','paid'],
-['put','put','put'],
-['read','read','read'],
-['run','ran','run'],
-['say','said','said'],
-['see','saw','seen'],
-['sell','sold','sold'],
-['send','sent','sent'],
-['sing','sang','sung'],
-['sit','sat','sat'],
-['sleep','slept','slept'],
-['speak','spoke','spoken'],
-['stand','stood','stood'],
-['swim','swam','swum'],
-['take','took','taken'],
-['teach','taught','taught'],
-['tell','told','told'],
-['think','thought','thought'],
-['understand','understood','understood'],
-['wear','wore','worn'],
-['write','wrote','written']
-];
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <script language="javascript">
+  top_words = 20;
+  irregularVerbs = [
+  ['be','was / were','been'],
+  ['become','became','become'],
+  ['begin','began','begun'],
+  ['bring','brought','brought'],
+  ['buy','bought','bought'],
+  ['choose','chose','chosen'],
+  ['come','came','come'],
+  ['do','did','done'],
+  ['drink','drank','drunk'],
+  ['drive','drove','driven'],
+  ['eat','ate','eaten'],
+  ['fall','fell','fallen'],
+  ['feel','felt','felt'],
+  ['find','found','found'],
+  ['fly','flew','flown'],
+  ['forget','forgot','forgotten'],
+  ['get','got','got'],
+  ['give','gave','given'],
+  ['go','went','gone'],
+  ['have','had','had'],
+  ['hear','heard','heard'],
+  ['keep','kept','kept'],
+  ['know','knew','known'],
+  ['leave','left','left'],
+  ['lend','lent','lent'],
+  ['let','let','let'],
+  ['lose','lost','lost'],
+  ['make','made','made'],
+  ['meet','met','met'],
+  ['pay','paid','paid'],
+  ['put','put','put'],
+  ['read','read','read'],
+  ['run','ran','run'],
+  ['say','said','said'],
+  ['see','saw','seen'],
+  ['sell','sold','sold'],
+  ['send','sent','sent'],
+  ['sing','sang','sung'],
+  ['sit','sat','sat'],
+  ['sleep','slept','slept'],
+  ['speak','spoke','spoken'],
+  ['stand','stood','stood'],
+  ['swim','swam','swum'],
+  ['take','took','taken'],
+  ['teach','taught','taught'],
+  ['tell','told','told'],
+  ['think','thought','thought'],
+  ['understand','understood','understood'],
+  ['wear','wore','worn'],
+  ['write','wrote','written']
+  ];
 
-function check_words(){
-	var infinitive_input = document.getElementById('infinitive');
-	var	past_simple_input = document.getElementById('past-simple');
-	var past_participle_input =	document.getElementById('past-paticiple');
-	
-	var simple = infinitive_input.value.trim().toLowerCase();
-	var past_simple = past_simple_input.value.trim().toLowerCase();
-	var past_paticiple = past_participle_input.value.trim().toLowerCase();
-	var passed = 0;
-	
-	console.log(simple, irregularVerbs[current_word_num])
-	
-	if (simple == irregularVerbs[current_word_num][0])
-		passed++;
-		
-	if (past_simple == irregularVerbs[current_word_num][1])
-		passed++;
-	
-	if (past_paticiple == irregularVerbs[current_word_num][2])
-		passed++;
-	
-	if (passed == 3)
-	{
-		infinitive_input.value = '';
-		past_simple_input.value = '';
-		past_participle_input.value = '';
-		addHistory(irregularVerbs[current_word_num]);		
-		fetchNextWord();
-	}
-	else
-		console.log('failed')
+  function check_words(){
+    var infinitive_input = document.getElementById('infinitive');
+    var	past_simple_input = document.getElementById('past-simple');
+    var past_participle_input =	document.getElementById('past-paticiple');
+    var error_msg_output = document.getElementById('error');
+
+    var simple = infinitive_input.value.trim().toLowerCase();
+    var past_simple = past_simple_input.value.trim().toLowerCase();
+    var past_paticiple = past_participle_input.value.trim().toLowerCase();
+    var passed = 0;
+    var error_msg = "";
+
+    console.log(simple, irregularVerbs[current_word_num])
+
+    if (simple == irregularVerbs[current_word_num][0]){
+      infinitive_input.className = '';
+      passed++;
+    }
+    else{
+      infinitive_input.className = 'bad_word';
+      infinitive_input.focus();
+    }
+
+    if (past_simple == irregularVerbs[current_word_num][1]){
+      past_simple_input.className = '';
+      passed++;
+    }
+    else{
+      past_simple_input.className = 'bad_word';
+      past_simple_input.focus();        
+    }
+
+    if (past_paticiple == irregularVerbs[current_word_num][2]){
+      past_participle_input.className='';
+      passed++;
+    }
+    else{
+      past_participle_input.className='bad_word';
+      past_participle_input.focus();
+    }
+
+    if (passed == 3){
+     infinitive_input.value = past_simple_input.value =  past_participle_input.value ='';
+     addHistory(irregularVerbs[current_word_num]);		
+     fetchNextWord();
+     infinitive_input.focus();
+   }
+   else{
+    error_msg_output.textContent = error_msg;
+    showHint(irregularVerbs[current_word_num].join(', '));
+  }
+
+}
+
+function showHint(hint){
+  var hint_element = document.getElementById('verb_hint');
+  hint_element.textContent = hint;
+  hint_element.style.display='block';
+  setTimeout(function(){
+    hint_element.textContent = '';
+    hint_element.style.display='none';
+  },1300);
 }
 
 function addHistory(wordList){
-		var history_log = document.createElement('div');
-		history_log.textContent = wordList.join(' ');
-		document.getElementById('test_form').appendChild(history_log);
+  var history_log = document.createElement('li');
+  history_log.textContent = wordList.join(' ');
+  document.getElementById('history_list').appendChild(history_log);
 }
 
 function fetchNextWord(){
-	var elem = document.getElementById('cur_word');
-	current_word_num = Math.floor(Math.random()*(irregularVerbs.length)) % top_words;
-	console.log(current_word_num);
-	elem.textContent = irregularVerbs[current_word_num][Math.floor(Math.random()*3)];
+  var elem = document.getElementById('cur_word');
+  current_word_num = Math.floor(Math.random()*(irregularVerbs.length)) % top_words;
+  console.log(current_word_num);
+  elem.textContent = irregularVerbs[current_word_num][Math.floor(Math.random()*3)];
 }
 
 function switchToNextOnEnter(ev){
-	;
+  ;
+}
+</script>
+<style type="text/css">
+#verb_hint{
+  background-color:#fbfdde;
+  font-family:sans-serif; 
+  font-size:150%; 
+  left:0;
+  display: none;
+  margin:16px;
+  padding:10px;
+  position:fixed;
+  -moz-border-radius:6px;
+  border-radius:6px;
+  top:0;
 }
 
-</script>
+#error{
+  font-family:sans-serif;
+  padding:1em; 
+  color:red;
+}
 
+#history_list{
+  margin: 1em;
+  color:#666;
+}
+
+.bad_word{
+  box-shadow: 0 0 5px #e00;
+}
+
+</style>
+</head>
 <body onload="fetchNextWord()">
-<div id="test_form">
-<div id="cur_word" style="font-family:sans-serif;padding:5em;font-size:120%">not loaded</div>
-<table>
-<tr>
-<td>Infinitive</td><td>Past Simple</td><td>Past participle</td><td/>
-</tr>
-<input id="infinitive" onkeypress=""/>
-<input id="past-simple"/>
-<input id="past-paticiple"/>
-<input type="button" value="Check my answer" onclick="check_words();return false;"/>
-</table>
-</div>
+  <div id="test_form">
+    <div id="cur_word" style="font-family:sans-serif;padding:5em;font-size:120%">not loaded</div>
+    <div id="verb_hint"></div>
+    <div id="error"></div>
+    <table>
+      <tr>
+        <td>Infinitive</td>
+        <td>Past Simple</td>
+        <td>Past participle</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <input id="infinitive" onkeypress=""/>
+        </td>
+        <td>
+          <input id="past-simple"/>
+        </td>
+        <td><input id="past-paticiple"/></td>
+        <td>
+          <input type="button" value="Check my answer" onclick="check_words();return false;"/>
+        </td>
+      </tr>
+    </table>
+    <ul id='history_list'/>
+  </div>
 </body>
