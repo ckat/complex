@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
   <script language="javascript">
-  top_words = 20;
+  top_words = 50;
   irregularVerbs = [
   ['be','was / were','been'],
   ['become','became','become'],
@@ -57,6 +57,18 @@
   ['write','wrote','written']
   ];
 
+  function check_word(expected, got, dom_element){
+    if (expected == got){
+      dom_element.className = '';
+      return 1;
+    }
+    else{
+      dom_element.className = 'bad_word';
+      dom_element.focus();
+      return 0;
+    }
+  }
+
   function check_words(){
     var infinitive_input = document.getElementById('infinitive');
     var	past_simple_input = document.getElementById('past-simple');
@@ -71,32 +83,9 @@
 
     console.log(simple, irregularVerbs[current_word_num])
 
-    if (simple == irregularVerbs[current_word_num][0]){
-      infinitive_input.className = '';
-      passed++;
-    }
-    else{
-      infinitive_input.className = 'bad_word';
-      infinitive_input.focus();
-    }
-
-    if (past_simple == irregularVerbs[current_word_num][1]){
-      past_simple_input.className = '';
-      passed++;
-    }
-    else{
-      past_simple_input.className = 'bad_word';
-      past_simple_input.focus();        
-    }
-
-    if (past_paticiple == irregularVerbs[current_word_num][2]){
-      past_participle_input.className='';
-      passed++;
-    }
-    else{
-      past_participle_input.className='bad_word';
-      past_participle_input.focus();
-    }
+    passed += check_word(simple,irregularVerbs[current_word_num][0], infinitive_input );
+    passed += check_word(past_simple,irregularVerbs[current_word_num][1], past_simple_input);
+    passed += check_word(past_paticiple,irregularVerbs[current_word_num][2], past_participle_input);
 
     if (passed == 3){
      infinitive_input.value = past_simple_input.value =  past_participle_input.value ='';
@@ -166,12 +155,13 @@ function switchToNextOnEnter(ev){
 
 .bad_word{
   box-shadow: 0 0 5px #e00;
+  -webkit-box-shadow: 0 0 5px #e00;
 }
 
 </style>
 </head>
 <body onload="fetchNextWord()">
-  <div id="test_form">
+  <div id="test_form" style="margin:0 auto; width:600px;">
     <div id="cur_word" style="font-family:sans-serif;padding:5em;font-size:120%">not loaded</div>
     <div id="verb_hint"></div>
     <div id="error"></div>
