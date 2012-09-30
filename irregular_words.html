@@ -116,14 +116,14 @@ function showHint(hint){
 
 function addHistory(wordList){
   var history_item = document.createElement('li');
-  var history = document.getElementById('history_list')
+  var history = document.getElementById('history_list');
   if (successWords == 0){
     var counter = document.createElement('span');
     history.appendChild(counter);
   }
 
   successWords++;
-  history.childNodes[0].textContent = 'You have passed ' + successWords + ' verbs';
+  history.childNodes[0].textContent = "You've passed " + successWords + ' verbs';
   history_item.textContent = wordList.join(' ');
   history.appendChild(history_item);
 }
@@ -140,20 +140,18 @@ function switchToNextOnEnter(ev){
 </script>
 <style type="text/css">
 #verb_hint{
-  background-color:#fbfdde;
+  background: -moz-radial-gradient(#ffa,#ffe);
+  box-shadow: 0 0 16px #ffb;
   font-family:sans-serif; 
   font-size:150%; 
   left:0;
   display: none;
-  margin:16px;
-  padding:10px;
+  padding:40px;
+  margin-left: 5em;
   position:absolute;
-  -moz-border-radius:6px;
-  border-radius:6px;
+  border-radius:2em;
   top:5em;
 }
-
-
 
 #history_list{
   margin: 1em;
@@ -173,13 +171,31 @@ function switchToNextOnEnter(ev){
   background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAALElEQVQImWNgQAJ3Pv//z4AL4JV88QNN8s7n///vfP7//8UPBIaJ4ddJtoMAuCsxv6zIh4oAAAAASUVORK5CYII=);
 }
 
+#cur_word{
+  font-family:sans-serif;
+  margin:5em;
+  font-size:120%;
+  background: #FAFAFF;
+}
+
+#lightbox{
+  position:fixed;
+  top:0;
+  left: 0;
+  display: none;
+  opacity: 0.75;
+  background: #000;
+}
 </style>
 </head>
 <body onload="onload()" class="blueprint">
+  <div id="lightbox">
+  </div>
+
   <div id="test_form" style="margin:0 auto; width:600px;">
-    <div id="cur_word" style="font-family:sans-serif;padding:5em;font-size:120%">not loaded</div>
-    
     <div id="verb_hint"></div>
+    
+    <div id="cur_word">not loaded</div>
     <table>
       <tr>
         <td>Infinitive</td>
