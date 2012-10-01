@@ -57,6 +57,8 @@
   ['write','wrote','written']
   ];
 
+
+
   function check_word(expected, got, dom_element){
     if (expected == got){
       dom_element.className = '';
@@ -99,9 +101,22 @@
 
 }
 
+scoreboarder = function (elemId){
+  return{
+  // HTML element to be updated
+  element:document.getElementById(elemId),
+
+  // update the score display
+  update:function (score) {
+    this.element.innerHTML = 'your score is ' + score;
+  }
+  }
+};
+
 function onload(){
-fetchNextWord();
-successWords = 0;
+  fetchNextWord();
+  successWords = 0;
+  scoreboard = new scoreboarder('results'); 
 }
 
 function showHint(hint){
@@ -123,7 +138,8 @@ function addHistory(wordList){
   }
 
   successWords++;
-  history.childNodes[0].textContent = "You've passed " + successWords + ' verbs';
+  scoreboard.update(successWords);
+  // history.childNodes[0].textContent = "You've passed " + successWords + ' verbs';
   history_item.textContent = wordList.join(' ');
   history.appendChild(history_item);
 }
@@ -173,9 +189,12 @@ function switchToNextOnEnter(ev){
 
 #cur_word{
   font-family:sans-serif;
-  margin:5em;
+  margin:1em;
+  padding: 2em;
   font-size:120%;
-  background: #FAFAFF;
+  background: white;
+  opacity: 0.70;
+  box-shadow: 0 0 10px white;
 }
 
 #lightbox{
@@ -216,6 +235,7 @@ function switchToNextOnEnter(ev){
         </td>
       </tr>
     </table>
+    <div id='results'></div>
     <ul id='history_list'>
   </div>
 </body>
