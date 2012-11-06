@@ -57,6 +57,8 @@
   ['write','wrote','written']
   ];
 
+
+
   function check_word(expected, got, dom_element){
     if (expected == got){
       dom_element.className = '';
@@ -94,10 +96,27 @@
      infinitive_input.focus();
    }
    else{
-    error_msg_output.textContent = error_msg;
     showHint(irregularVerbs[current_word_num].join(', '));
   }
 
+}
+
+scoreboarder = function (elemId){
+  return{
+  // HTML element to be updated
+  element:document.getElementById(elemId),
+
+  // update the score display
+  update:function (score) {
+    this.element.innerHTML = 'your score is ' + score;
+  }
+  }
+};
+
+function onload(){
+  fetchNextWord();
+  successWords = 0;
+  scoreboard = new scoreboarder('results'); 
 }
 
 function showHint(hint){
@@ -111,15 +130,23 @@ function showHint(hint){
 }
 
 function addHistory(wordList){
-  var history_log = document.createElement('li');
-  history_log.textContent = wordList.join(' ');
-  document.getElementById('history_list').appendChild(history_log);
+  var history_item = document.createElement('li');
+  var history = document.getElementById('history_list');
+  if (successWords == 0){
+    var counter = document.createElement('span');
+    history.appendChild(counter);
+  }
+
+  successWords++;
+  scoreboard.update(successWords);
+  // history.childNodes[0].textContent = "You've passed " + successWords + ' verbs';
+  history_item.textContent = wordList.join(' ');
+  history.appendChild(history_item);
 }
 
 function fetchNextWord(){
   var elem = document.getElementById('cur_word');
   current_word_num = Math.floor(Math.random()*(irregularVerbs.length)) % top_words;
-  console.log(current_word_num);
   elem.textContent = irregularVerbs[current_word_num][Math.floor(Math.random()*3)];
 }
 
@@ -127,26 +154,19 @@ function switchToNextOnEnter(ev){
   ;
 }
 </script>
-<link rel="stylesheet" type="text/css" href="grid.css"/>
 <style type="text/css">
 #verb_hint{
-  background-color:#fbfdde;
+  background: -moz-radial-gradient(#ffa,#ffe);
+  box-shadow: 0 0 16px #ffb;
   font-family:sans-serif; 
   font-size:150%; 
   left:0;
   display: none;
-  margin:16px;
-  padding:10px;
+  padding:40px;
+  margin-left: 5em;
   position:absolute;
-  -moz-border-radius:6px;
-  border-radius:6px;
-  top:0;
-}
-
-#error{
-  font-family:sans-serif;
-  padding:1em; 
-  color:red;
+  border-radius:2em;
+  top:5em;
 }
 
 #history_list{
@@ -154,40 +174,68 @@ function switchToNextOnEnter(ev){
   color:#666;
 }
 
+#test_form{
+  position:relative;
+}
+
 .bad_word{
   box-shadow: 0 0 5px #e00;
   -webkit-box-shadow: 0 0 5px #e00;
 }
 
+.blueprint{
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAALElEQVQImWNgQAJ3Pv//z4AL4JV88QNN8s7n///vfP7//8UPBIaJ4ddJtoMAuCsxv6zIh4oAAAAASUVORK5CYII=);
+}
+
+#cur_word{
+  font-family:sans-serif;
+  margin:1em;
+  padding: 2em;
+  font-size:120%;
+  background: white;
+  opacity: 0.70;
+  box-shadow: 0 0 10px white;
+}
+
+#lightbox{
+  position:fixed;
+  top:0;
+  left: 0;
+  display: none;
+  opacity: 0.75;
+  background: #000;
+}
 </style>
 </head>
-<body onload="fetchNextWord()">
-  <div class='container_6'>
-    <div id="test_form">
-      <div id="cur_word" style="font-family:sans-serif;padding:5em;font-size:120%">not loaded</div>
-      <div id="verb_hint"></div>
-      <div id="error"></div>
-      <table>
-        <tr>
-          <td>Infinitive</td>
-          <td>Past Simple</td>
-          <td>Past participle</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>
-            <input id="infinitive" onkeypress=""/>
-          </td>
-          <td>
-            <input id="past-simple"/>
-          </td>
-          <td><input id="past-paticiple"/></td>
-          <td>
-            <input type="button" value="Check my answer" onclick="check_words();return false;"/>
-          </td>
-        </tr>
-      </table>
-      <ul id='history_list'/>
-    </div>
+<body onload="onload()" class="blueprint">
+  <div id="lightbox">
+  </div>
+
+  <div id="test_form" style="margin:0 auto; width:600px;">
+    <div id="verb_hint"></div>
+    
+    <div id="cur_word">not loaded</div>
+    <table>
+      <tr>
+        <td>Infinitive</td>
+        <td>Past Simple</td>
+        <td>Past participle</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <input id="infinitive" onkeypress=""/>
+        </td>
+        <td>
+          <input id="past-simple"/>
+        </td>
+        <td><input id="past-paticiple"/></td>
+        <td>
+          <input type="button" value="Check my answer" onclick="check_words();return false;"/>
+        </td>
+      </tr>
+    </table>
+    <div id='results'></div>
+    <ul id='history_list'>
   </div>
 </body>
