@@ -127,6 +127,7 @@ function switchToNextOnEnter(ev){
   ;
 }
 </script>
+<link rel="stylesheet" type="text/css" href="grid.css"/>
 <style type="text/css">
 #verb_hint{
   background-color:#fbfdde;
@@ -136,7 +137,7 @@ function switchToNextOnEnter(ev){
   display: none;
   margin:16px;
   padding:10px;
-  position:fixed;
+  position:absolute;
   -moz-border-radius:6px;
   border-radius:6px;
   top:0;
@@ -161,30 +162,32 @@ function switchToNextOnEnter(ev){
 </style>
 </head>
 <body onload="fetchNextWord()">
-  <div id="test_form" style="margin:0 auto; width:600px;">
-    <div id="cur_word" style="font-family:sans-serif;padding:5em;font-size:120%">not loaded</div>
-    <div id="verb_hint"></div>
-    <div id="error"></div>
-    <table>
-      <tr>
-        <td>Infinitive</td>
-        <td>Past Simple</td>
-        <td>Past participle</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          <input id="infinitive" onkeypress=""/>
-        </td>
-        <td>
-          <input id="past-simple"/>
-        </td>
-        <td><input id="past-paticiple"/></td>
-        <td>
-          <input type="button" value="Check my answer" onclick="check_words();return false;"/>
-        </td>
-      </tr>
-    </table>
-    <ul id='history_list'/>
+  <div class='container_6'>
+    <div id="test_form">
+      <div id="cur_word" style="font-family:sans-serif;padding:5em;font-size:120%">not loaded</div>
+      <div id="verb_hint"></div>
+      <div id="error"></div>
+      <table>
+        <tr>
+          <td>Infinitive</td>
+          <td>Past Simple</td>
+          <td>Past participle</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <input id="infinitive" onkeypress=""/>
+          </td>
+          <td>
+            <input id="past-simple"/>
+          </td>
+          <td><input id="past-paticiple"/></td>
+          <td>
+            <input type="button" value="Check my answer" onclick="check_words();return false;"/>
+          </td>
+        </tr>
+      </table>
+      <ul id='history_list'/>
+    </div>
   </div>
 </body>
