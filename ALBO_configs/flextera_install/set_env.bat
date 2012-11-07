@@ -1,0 +1,8 @@
+@set WAS_PROFILE=flextera7
+@set WAS_HOME=d:\installed\IBM\ALBOAS7
+@set WAS_ADMINHOST_EMP=localhost
+@set WAS_ADMINSOAP_EMP=8885
+@set WAS_USERNAME_EMP=flextera7
+@set WAS_PASSWORD_EMP=flextera7
+@set WAS_SERVERNODE=EPRUIZHW0032Node06
+@set WAS_SERVERNAME=server1
