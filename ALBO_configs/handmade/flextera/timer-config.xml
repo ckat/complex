@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<tasks>
+<!-- 		<task1>
+			<url>http://localhost:9085/corews/corews</url>
+			<command>PROCESS_TASKS</command>
+			<delay>60</delay>
+			<login>alfasys</login>
+			<password>12345678</password>
+		</task1> -->
+	</tasks>
+</root>

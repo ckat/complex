@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	
+	<useAudit>false</useAudit>
+	<threadPool>10</threadPool>
+	<defaultSchemeId>1</defaultSchemeId>
+<!-- 	<rmi>
+		<serverport>13000</serverport>
+		<serverhost>localhost</serverhost>
+		<serviceport>13001</serviceport>
+	</rmi> -->
+	<updateTasksDelayTime>5</updateTasksDelayTime>
+</root>

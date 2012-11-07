@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<dataSourceUrl>jdbc:oracle:thin:@epruizhst0001.moscow.epam.com:1521:ALFADBO</dataSourceUrl>
+	<minCon>1</minCon>
+	<maxCon>4</maxCon>
+	<userName>AK_LEVN_1_1</userName>
+	<password>AK_LEVN_1_1</password>
+	<productSysName>LEVN</productSysName>
+	<productLocales>ru, en</productLocales>
+	<useAudit>false</useAudit>
+
+    <rmi>
+        <serverport>11000</serverport>
+        <serverhost>localhost</serverhost>
+        <serviceport>11004</serviceport>
+    </rmi>
+	
+	<!--имя менеджера очереди MQ -->
+	<mqConnectionFactory>jms/settlementConnectionFactory</mqConnectionFactory>
+	<!--имя очереди MQ-->
+	<mqEqQueueName>jms/equationQueue</mqEqQueueName>
+	<!--интервал ожидания сообщения из очереди MQ в секундах-->
+	<mqReceiverTimeout>300</mqReceiverTimeout>	
+	<!--интервал опроса очереди MQ в секундах-->
+	<mqJobTriggerInterval>900</mqJobTriggerInterval>
+	
+	<cacheTimeout>60</cacheTimeout>
+	<cacheErrorTimeout>600</cacheErrorTimeout>
+	<eventTimeout>1</eventTimeout>
+	<eventErrorTimeout>60</eventErrorTimeout>
+	<eventCleanTimeout>60</eventCleanTimeout>
+	<eventCleanErrorTimeout>600</eventCleanErrorTimeout>
+</root>

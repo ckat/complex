@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<corews>http://localhost:9085/corews/corews</corews>
+	<service>http://localhost:9085</service>
+	<useAudit>false</useAudit>
+	<productCode>1</productCode>
+</root>

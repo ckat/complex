@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!-- Параметр отвечает за кэширование отчётов, в процессе разработки и отладки рекомендуется выставлять true -->
+    <developmentMode>true</developmentMode>
+    <fontPath>C:/Windows</fontPath>
+    <reportOutput>D:/TMP/OUTPUT</reportOutput>
+    <rootPath>c:/projects/METADATA/</rootPath>
+</root>
