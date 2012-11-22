@@ -1,0 +1,12 @@
+# Are computers the most significant invention of the XX century
+
+	As far as we concerned they are. I just want to tell you today about 'Why'.
+The most affected area is industry. Computers helps in all area of developing 
+and manufacturing. Computer aided design softwate allows to quickly develop new products and improve them. We can simulate behavior, try different approaches, calculate and adjust all necessary parameters. Thus reduce time, efforts and materials. This especially noticable on large-scale items, such as cars, airplains. Futhemore computer numerical control (CNC) machines and robotic conveyors make possible to produce extremely complex goods with stable quality at very high speed. Overall production effectiveness increased in several times during last century due to automatization, serial production significantly reduced cost of goods. Now lets talk about new era of information exchange, impossible without modern computers. Today anyone can communticate with people in every country in real time, over telephony, Skype or similar. It is really cheap. TV, news sites give us live information about world situation. We have huge knowledge databases (Wikipedia, Google, etc.) with instant search over immense amount of data. Computer power helps to 
+ 
+
+ - Economics
+ - Medicine & Safety
+ - Information exchange, entertaiment
+ -- Logistics (incl. precise Schedule)
+

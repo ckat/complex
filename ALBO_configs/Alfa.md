@@ -21,12 +21,11 @@ notificationsws  =	http://localhost:9084/notificationsws/notificationsws
 mqadapterws      =	http://localhost:9084/mqadapterws/mqadapterws 
 debug port       =	7781
 
-dm.bat -u --url=jdbc:oracle:thin:@epruizhst0001.moscow.epam.com:1521:ALFADBO --database=AK_FLEXTERA7 --username=AK_FLEXTERA7 --password=AK_FLEXTERA7 --logFile=updatedb.log
 
 
-#flextera
+#flextera7
 https://localhost:9045/ibm/console	flex@flex
-http://localhost:9082/webclient/
+http://localhost:9048/webclient/
 
 Собирать через Oracle JRE, иначе проблемы с xml библиотекой в runtime вылезут
 
@@ -34,8 +33,11 @@ http://localhost:9082/webclient/
 #Денежные клиенты
 UAB8M8 - ООО Лютик
 
-
-
+###Полезные команды
+dm.bat -u --url=jdbc:oracle:thin:@epruizhst0001.moscow.epam.com:1521:ALFADBO --database=AK_FLEXTERA703 --username=AK_FLEXTERA703 --password=AK_FLEXTERA703 --logFile=updatedb.log
+git archive --format zip --output ../jmsEQMediation.zip master 
+mvn install:install-file -Dfile=common-rmi-7.03.01-12102901.jar -DgroupId=ru.diasoft.fa.platform.lib -DartifactId=common-rmi -Dversion=7.03.01-12102901 -Dpackaging=jar
+mvn install:install-file -Dfile=ws-security-7.02.01-12101201.jar -DgroupId=ru.diasoft.fa.platform.lib -DartifactId=ws-security -Dversion=7.03.01-12102901 -Dpackaging=jar
 
 # БД
 ## Правила
@@ -44,7 +46,7 @@ UAB8M8 - ООО Лютик
 
 #Запрос на изменение типа пользователя
 insert into ak_ladm_1_1.LADM_USERACCROLE (useraccountid,roleid) 
-	values ((select useraccountid from ak_flextera.CORE_USERACCOUNT where login='alfasys'),
+	values ((select useraccountid from ak_flextera703.CORE_USERACCOUNT where login='alfasys'),
 		(select id from ak_ladm_1_1.LADM_ROLE where sysname='SysRole')); 
 commit;
 
