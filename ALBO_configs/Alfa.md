@@ -38,6 +38,8 @@ dm.bat -u --url=jdbc:oracle:thin:@epruizhst0001.moscow.epam.com:1521:ALFADBO --d
 git archive --format zip --output ../jmsEQMediation.zip master 
 mvn install:install-file -Dfile=common-rmi-7.03.01-12102901.jar -DgroupId=ru.diasoft.fa.platform.lib -DartifactId=common-rmi -Dversion=7.03.01-12102901 -Dpackaging=jar
 mvn install:install-file -Dfile=ws-security-7.02.01-12101201.jar -DgroupId=ru.diasoft.fa.platform.lib -DartifactId=ws-security -Dversion=7.03.01-12102901 -Dpackaging=jar
+sed 's/function \(\w*\)(/\1 = function(/'
+
 
 # БД
 ## Правила

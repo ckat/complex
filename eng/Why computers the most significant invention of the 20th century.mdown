@@ -1,14 +1,11 @@
 # Are computers the most significant invention of the XX century?
 As far as we concerned they are. I just want to tell you something about 'Why'.
-The most affected area is industry. Computers help in all area of developing and manufacturing. Computer aided design software allows to quickly develop new products and improve them. We can simulate behavior, try different approaches, calculate and adjust all necessary parameters. Thus reduce time, efforts and materials. This is especially noticeable on large-scale items, such as cars, airplanes. Furthermore computer numerical control (CNC) machines and robotic conveyors make possible to produce extremely complex goods with stable quality at very high speed. Overall production effectiveness increased in several times during last century due to automation, serial production significantly reduced cost of goods. 
+The most affected area is industry. Computers help in all area of developing and manufacturing. Computer aided design software allows to quickly develop new products and improve them. We can simulate behavior, try different approaches, calculate and adjust all necessary parameters. Thus reduce time, efforts and materials. This is especially noticeable on large-scale items, such as cars, airplanes. Furthermore computer numerical control (CNC) machines and robotic conveyors make possible to produce extremely complex goods with stable quality at very high speed. Overall production effectiveness increased in several times during last century due to automation and serial production significantly reduced cost of goods. 
 Now let’s talk about new era of information exchange, impossible without modern computers. Today anyone can communicate with people in every country in real time, over telephone, Skype or similar. It is really cheap. TV, news sites give us live information about world situation. Anyone can share his thoughts through social networks with thousands or even hundreds of thousands of people. We have huge knowledge databases (Wikipedia, Google, etc.) with instant search over immense amount of data. 
 
-Развитие компьютерной техники существенно ускорило научный прогресс во всех областях. Биология и медицина, химия, физика. Коллосальная вычислительная мощьность позволила моделировать и контролировать процессы происходящие на разных уровнях, от взаимодействия атомов до галактических масштабов. _Как это повысило уровень жизни_
+Computer development significantly speedup science progress in all areas: biology, medicine, chemistry and phisics. Huge computing power allows to model, control and research processes at any level, from atom to galaxy interactions.
 
-Вся торговля, логистика  
- 
+Trade and logistics uses computers as basis of their activities. Accounting, analyze and planning made with a help of computers.
 
- - Economics
- - Medicine & Safety
- -- Logistics (incl. precise Schedule)
+Hence, invention of computers is the most significant invention of previous century.
 
