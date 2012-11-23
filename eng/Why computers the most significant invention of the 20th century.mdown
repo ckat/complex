@@ -1,12 +1,14 @@
-# Are computers the most significant invention of the XX century
+# Are computers the most significant invention of the XX century?
+As far as we concerned they are. I just want to tell you something about 'Why'.
+The most affected area is industry. Computers help in all area of developing and manufacturing. Computer aided design software allows to quickly develop new products and improve them. We can simulate behavior, try different approaches, calculate and adjust all necessary parameters. Thus reduce time, efforts and materials. This is especially noticeable on large-scale items, such as cars, airplanes. Furthermore computer numerical control (CNC) machines and robotic conveyors make possible to produce extremely complex goods with stable quality at very high speed. Overall production effectiveness increased in several times during last century due to automation, serial production significantly reduced cost of goods. 
+Now let’s talk about new era of information exchange, impossible without modern computers. Today anyone can communicate with people in every country in real time, over telephone, Skype or similar. It is really cheap. TV, news sites give us live information about world situation. Anyone can share his thoughts through social networks with thousands or even hundreds of thousands of people. We have huge knowledge databases (Wikipedia, Google, etc.) with instant search over immense amount of data. 
 
-	As far as we concerned they are. I just want to tell you today about 'Why'.
-The most affected area is industry. Computers helps in all area of developing 
-and manufacturing. Computer aided design softwate allows to quickly develop new products and improve them. We can simulate behavior, try different approaches, calculate and adjust all necessary parameters. Thus reduce time, efforts and materials. This especially noticable on large-scale items, such as cars, airplains. Futhemore computer numerical control (CNC) machines and robotic conveyors make possible to produce extremely complex goods with stable quality at very high speed. Overall production effectiveness increased in several times during last century due to automatization, serial production significantly reduced cost of goods. Now lets talk about new era of information exchange, impossible without modern computers. Today anyone can communticate with people in every country in real time, over telephony, Skype or similar. It is really cheap. TV, news sites give us live information about world situation. We have huge knowledge databases (Wikipedia, Google, etc.) with instant search over immense amount of data. Computer power helps to 
+Развитие компьютерной техники существенно ускорило научный прогресс во всех областях. Биология и медицина, химия, физика. Коллосальная вычислительная мощьность позволила моделировать и контролировать процессы происходящие на разных уровнях, от взаимодействия атомов до галактических масштабов. _Как это повысило уровень жизни_
+
+Вся торговля, логистика  
  
 
  - Economics
  - Medicine & Safety
- - Information exchange, entertaiment
  -- Logistics (incl. precise Schedule)
 
