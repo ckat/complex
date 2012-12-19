@@ -4,10 +4,11 @@
 	<useAudit>false</useAudit>
 	<threadPool>10</threadPool>
 	<defaultSchemeId>1</defaultSchemeId>
-<!-- 	<rmi>
+ 	<!-- <rmi>
 		<serverport>13000</serverport>
 		<serverhost>localhost</serverhost>
 		<serviceport>13001</serviceport>
-	</rmi> -->
-	<updateTasksDelayTime>5</updateTasksDelayTime>
+	</rmi> 
+	 -->
+	 <updateTasksDelayTime>6</updateTasksDelayTime>
 </root>

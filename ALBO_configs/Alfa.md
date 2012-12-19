@@ -2,6 +2,9 @@
 ##Страницы
 ##
 
+#Явки, пароли
+baenova/Gkjirf1384
+
 #Client
 Server console   =	https://127.0.0.1:9046/ibm/console/login.do
 webclient		 =	http://localhost:9083/webclient
@@ -24,8 +27,8 @@ debug port       =	7781
 
 
 #flextera7
-https://localhost:9045/ibm/console	flex@flex
-http://localhost:9048/webclient/
+https://localhost:9048/ibm/console
+http://localhost:9085/webclient/
 
 Собирать через Oracle JRE, иначе проблемы с xml библиотекой в runtime вылезут
 

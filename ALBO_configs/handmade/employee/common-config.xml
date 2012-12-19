@@ -4,8 +4,8 @@
 	<dataSourceUrl>jdbc:oracle:thin:@epruizhst0001.moscow.epam.com:1521:ALFADBO</dataSourceUrl>
 	<minCon>1</minCon>
 	<maxCon>4</maxCon>
-	<userName>AK_FLEXTERA7</userName>
-	<password>AK_FLEXTERA7</password>
+	<userName>AK_FLEXTERA703</userName>
+	<password>AK_FLEXTERA703</password>
 	<dateFormat>dd.MM.yyyy</dateFormat>
 	<project><!-- specify project name here --></project>
 
@@ -41,7 +41,7 @@
 		<name>auditws</name>
 		<url>http://localhost:9085/auditws/auditws</url>
 	</audit>
-
+<!--
     <clientfacadews>
         <name>clientfacadews</name>
         <url>http://localhost:9083/clientfacadews/clientfacadews</url>
@@ -59,32 +59,36 @@
 		<url>http://localhost:9083/statementws/statementws</url>
 	</statementws>
 
-
+-->
     <employeefacadews>
         <name>employeefacadews</name>
         <url>http://localhost:9084/employeefacadews/employeefacadews</url>
     </employeefacadews>
-	<linkadminws>
-		<name>linkadminws</name>
-		<url>http://localhost:9084/linkadminws/linkadminws</url>
-	</linkadminws>
+
+    <linkadminws>
+        <name>linkadminws</name>
+        <url>http://localhost:9083/linkadminws/linkadminws</url>
+       <!--  <url>localhost</url>
+        <port>11000</port> 
+        <protocol>rmi</protocol> -->
+    </linkadminws>
 	<dictionariesws>
 		<name>dictionariesws</name>
-		<url>http://localhost:9084/dictionariesws/dictionariesws</url>
+		<url>http://localhost:9083/dictionariesws/dictionariesws</url>
 	</dictionariesws>
 	<notificationsws>
 		<name>notificationsws</name>
-		<url>http://localhost:9084/notificationsws/notificationsws</url>
+		<url>http://localhost:9083/notificationsws/notificationsws</url>
 	</notificationsws>
-	<mqadapterws>
+	<!-- <mqadapterws>
 		<name>mqadapterws</name>
 		<url>http://localhost:9084/mqadapterws/mqadapterws</url>
-	</mqadapterws>
+	</mqadapterws> -->
     <rqws>
         <resultFolderPath>d:/Projects/Alfabank/runtime/RequestFiles</resultFolderPath>
         <host>localhost</host>
         <port>2813</port>
-    </rqws>
+    </rqws> -
 
 	<!-- Системный пользователь. Позволит осуществлять межмодульное взаимодействие и вызов модулей из фоновых процессов  -->
 	<operatorLogin>alfasys</operatorLogin>

@@ -3,7 +3,7 @@
 	<project>LCLF</project>
 	<dateFormat>dd.MM.yyyy</dateFormat>
 	<reportOutput>C:/projects/link_1.1/OUTPUT</reportOutput>
-
+	<configuration>DEVELOPMENT</configuration>
 	<service>http://localhost:9085</service>
 	<reportws>http://localhost:9085/reportws/reportws?</reportws>
 	<corews>http://localhost:9085/corews/corews</corews>
