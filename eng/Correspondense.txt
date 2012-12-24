@@ -1,0 +1,68 @@
+#Salutation
+How are things going
+How's it coming along
+
+#Thanking
+Felt pleased about
+Would like to send our gratitude for
+We are grateful that ...
+
+#Praising
+I stess you that we have been very satisfied with ...
+You did a great job on the presentation
+The ... went down really well.
+
+#Complaining
+The only thing is, I'm not to happy with ...
+Have to tell you that some problem has been discovered
+I suggest we have a bit of rethink. Lets get together next week and see
+
+#Asking for update
+How does your side of things look?
+How's the ... coming along?
+How far are you with ...?
+How are things with ...?
+What's the current status of ...?
+
+#Giving an update
+I've already ...
+I haven't ... yet
+We're on track
+Things aren't running as smoothly as I'd hoped.
+We've hit the problem with ... 
+
+#Clarifying a problem
+So what do you mean exactly?
+So what you saying is ...?
+So real problem lies with ...?
+
+#Suggesting
+... would be my proposal.
+If you ask me, we should
+How about (+ -ing)
+We could (+verb)
+Why don't we (+verb)
+
+
+#Responding to suggestion
+That's a good idea.
+It's worth a try.
+That's possible (but ...).
+That's not ideal solution.
+I'm not convinced.
+I suppose so.
+
+#Requesting
+I would be grateful if you could
+I wonder if _smth_ would be +V
+Would you also be able to 
+Would you mind if _Ving_
+How about ...
+Also, if you have time, could you have a look at ...
+
+#Reminding
+It's very important I have your ... as soon as possible
+
+#Agree/gisagree
+
+#Ending
