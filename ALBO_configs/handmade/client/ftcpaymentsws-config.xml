@@ -3,14 +3,25 @@
 	<jdbcDriver>oracle.jdbc.driver.OracleDriver</jdbcDriver>
 	<dataSourceUrl>jdbc:oracle:thin:@epruizhst0001.moscow.epam.com:1521:ALFADBO</dataSourceUrl>
 	<minCon>1</minCon>
-	<maxCon>50</maxCon>
+	<maxCon>4</maxCon>
 	<userName>AK_LCPMT</userName>
 	<password>AK_LCPMT</password>
 	<productSysName>LCPMT</productSysName>
 	<productLocales>ru, en</productLocales>
-	<useAudit>false</useAudit>
+	<useAudit>true</useAudit>
 	<localizationProject>LCPMT</localizationProject>
 	
+	<admin>
+		<url>http://localhost:9085/adminws/adminws</url>
+		<name>PLATFORM/adminws</name>
+	</admin>
+	<corews>
+		<url>http://localhost:9085/corews/corews</url>
+		<name>PLATFORM/corews</name>
+	</corews>
+
+	<operatorLogin>alfasys</operatorLogin>
+    <operatorPassword>7c222fb2927d828af22f592134e8932480637c0d</operatorPassword>
 	
 	<cacheTimeout>60</cacheTimeout>
 	<cacheErrorTimeout>600</cacheErrorTimeout>

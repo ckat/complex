@@ -15,7 +15,7 @@
 	<eventCleanTimeout>60</eventCleanTimeout>
 	<eventCleanErrorTimeout>600</eventCleanErrorTimeout>
 	<rmi>
-		<serverport>13000</serverport>
+		<serverport>11000</serverport>
 		<serverhost>localhost</serverhost>
 		<serviceport>13050</serviceport>
 	</rmi>

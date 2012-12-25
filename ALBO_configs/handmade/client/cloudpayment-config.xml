@@ -5,7 +5,7 @@
 	<maxCon>4</maxCon>
 	<userName>AK_LPMT_1_1</userName>
 	<password>AK_LPMT_1_1</password>
-	<productSysName>LPMT</productSysName>
+	<productSysName>LCLP</productSysName>
 	<productLocales>ru, en</productLocales>
 	<useAudit>false</useAudit>
 	<cacheTimeout>60</cacheTimeout>
@@ -16,8 +16,8 @@
 	<eventCleanErrorTimeout>600</eventCleanErrorTimeout>
 	<output>D:/Projects/Alfabank/runtime/OUTPUT</output>
 	<rmi>
-		<serverport>12000</serverport>
+		<serverport>13000</serverport>
 		<serverhost>localhost</serverhost>
-		<serviceport>12060</serviceport>
+		<serviceport>13060</serviceport>
 	</rmi>
 </root>

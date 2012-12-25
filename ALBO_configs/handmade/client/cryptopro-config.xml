@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<keyStoreType>HDImageStore</keyStoreType>
+		<keyStoreType>HDImageStore</keyStoreType>
 	<keyStoreAlias>correct</keyStoreAlias>
 	<keyStorePassword>111111</keyStorePassword>
-	<caFile>d:/certificates/root.cer</caFile>
+	<caFile>d:/albo/root.cer</caFile>
 </root>

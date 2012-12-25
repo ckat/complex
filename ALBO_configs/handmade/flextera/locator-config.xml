@@ -58,20 +58,19 @@
 
     <alias>
         <name>notificationsws</name>
-        <url>http://localhost:9084/notificationsws/notificationsws</url>
-    <!--     <url>localhost</url>
+        <!-- <url>http://localhost:9084/notificationsws/notificationsws</url> -->
+        <url>localhost</url>
         <port>11000</port>
-        <protocol>rmi</protocol> -->
+        <protocol>rmi</protocol>
     </alias>
 
     <!-- Client -->
     <alias>
         <name>clientfacadews</name>
-        <url>http://localhost:9083/clientfacadews/clientfacadews</url>
-    <!--     <url>localhost</url>
+        <!-- <url>http://localhost:9083/clientfacadews/clientfacadews</url> -->
+        <url>localhost</url>
         <port>12000</port>
         <protocol>rmi</protocol>
-     -->
     </alias>
 
     <alias>
@@ -84,25 +83,25 @@
 
     <alias>
         <name>messagesws</name>
-        <url>http://localhost:9083/messagesws/messagesws</url>
-    <!--     <url>localhost</url>
+        <!-- <url>http://localhost:9083/messagesws/messagesws</url> -->
+        <url>localhost</url>
         <port>12000</port>
         <protocol>rmi</protocol>
-     --></alias>
+    </alias>
 
     <alias>
         <name>paymentws</name>
-        <url>http://localhost:9083/paymentws/paymentws</url>
-    <!--     <url>localhost</url>
+        <!-- <url>http://localhost:9083/paymentws/paymentws</url> -->
+        <url>localhost</url>
         <port>12000</port>
         <protocol>rmi</protocol>
-     --></alias>
+    </alias>
 
     <alias>
         <name>statementws</name>
-        <url>http://localhost:9083/statementws/statementws</url>
-      <!--   <url>localhost</url>
+        <!-- <url>http://localhost:9083/statementws/statementws</url> -->
+        <url>localhost</url>
         <port>12000</port>
-        <protocol>rmi</protocol> -->
+        <protocol>rmi</protocol>
     </alias>
 </aliases>
