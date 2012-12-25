@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<jdbcDriver>oracle.jdbc.driver.OracleDriver</jdbcDriver>
+	<dataSourceUrl>jdbc:oracle:thin:@epruizhst0001.moscow.epam.com:1521:ALFADBO</dataSourceUrl>
+	<minCon>1</minCon>
+	<maxCon>50</maxCon>
+	<userName>AK_LCC</userName>
+	<password>AK_LCC</password>
+	<productSysName>LCC</productSysName>
+	<productLocales>ru, en</productLocales>
+	<useAudit>true</useAudit>
+	<localizationProject>LCC</localizationProject>
+
+	<cacheTimeout>60</cacheTimeout>
+	<cacheErrorTimeout>600</cacheErrorTimeout>
+	<eventTimeout>1</eventTimeout>
+	<eventErrorTimeout>60</eventErrorTimeout>
+	<eventCleanTimeout>60</eventCleanTimeout>
+	<eventCleanErrorTimeout>600</eventCleanErrorTimeout>
+	
+	
+	<esbactive>false</esbactive>
+	<!--<esburl>http://integrbus:9080/ISRegistryMediationWeb/sca/module/InputAdaptorWSExport</esburl>
+	<esblogin>timer</esblogin>
+	<esbpassword>7c4a8d09ca3762af61e59520943dc26494f8941b</esbpassword> -->
+	<esbsystem>LCC</esbsystem> 
+	
+	<rmi>
+		<serverport>13000</serverport>
+		<serverhost>localhost</serverhost>
+		<serviceport>13080</serviceport>
+	</rmi>
+</root>

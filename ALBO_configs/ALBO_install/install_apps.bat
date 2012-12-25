@@ -9,10 +9,15 @@ IF NOT "%WAS_DEINSTALLING_APPS_SUFFIX_EXT%"=="" set WAS_DEINSTALLING_APPS_VERSIO
 
 REM call uninstall webclient employee
 call uninstall employeefacadews employee
+call uninstall messagesws employee
+call uninstall paymentws employee
+call uninstall dictionariesws employee
+call uninstall linkadminws employee
 call uninstall mqadapterws employee
 call uninstall notificationsws employee
 call uninstall ftcconvws employee
 call uninstall ftcpaymentsws employee
+call uninstall statementws employee
 
 REM call uninstall webclient client
 call uninstall clientfacadews client
@@ -32,14 +37,11 @@ call uninstall ftcconvws client
 call uninstall ftcpaymentsws client
 
 :installingApps
-REM call install_war webclient webclient employee
-call install_war employeefacadews employeefacadews employee
-call install_war mqadapterws mqadapterws employee
-call install_war notificationsws notificationsws employee
-call install_war ftcconvws ftcconvws employee
-call install_war ftcpaymentsws ftcpaymentsws employee
+
 
 REM call install_war webclient webclient client
+call install_war employeefacadews employeefacadews employee
+
 call install_war clientfacadews clientfacadews client
 call install_war messagesws messagesws client
 call install_war paymentws paymentws client
@@ -47,8 +49,8 @@ call install_war statementws statementws client
 call install_war dictionariesws dictionariesws client
 call install_war linkadminws linkadminws client
 call install_war notificationsws notificationsws client
-call install_war ftcconvws ftcconvws client
-call install_war ftcpaymentsws ftcpaymentsws client
+REM call install_war ftcconvws ftcconvws client
+REM call install_war ftcpaymentsws ftcpaymentsws client
 call install_ear rqws client
 call install_ear WSCreateAccountMovementListRequest client
 call install_ear WSCreatePaymentDocRUR client
