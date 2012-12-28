@@ -148,14 +148,14 @@ Client.Payment.PaymentOrderEdit.initDSCallers = function (){
 Client.Payment.PaymentOrderEdit.initLookups = function () {
     var me = this;
 
-    this.clientLookup = { pageflow:'client/payment/selectPayer', width: 650, height: 370, title:"Выбор плательщика", 
+    this.clientLookup = {pageflow:'client/payment/selectPayer', width: 650, height: 370, title:"Выбор плательщика", 
         callback:function(){
             me.onPayerSelected();
             me.onChangeForm();          
         }
     };
 
-    this.recipientLookup = { pageflow:'client/payment/selectCagent', width: 650, height: 370, 
+    this.recipientLookup = {pageflow:'client/payment/selectCagent', width: 650, height: 370, 
     title:"Выбор получателя", 
     callback: function(){
             me.onRecipientSelected();
@@ -163,13 +163,21 @@ Client.Payment.PaymentOrderEdit.initLookups = function () {
         }
     }
 
-    this.templateLookup = { pageflow:'client/payment/selectTemplate', width: 650, height: 370, title:"Выбор шаблона", 
+    this.recipientBankBicLookup = {pageflow:'client/payment/selectBankBic', 650, 370,
+    title: 'Выбор БИКа банка получателя',
+    callback: function(){
+        me.onRecipientBankSelected();
+        me.onChangeForm();
+        }
+    }
+    
+    this.templateLookup = {pageflow:'client/payment/selectTemplate', width: 650, height: 370, title:"Выбор шаблона", 
         callback:function(){
             me.onTemplateSelected();         
         }
     };
 
-    this.budgetBaseValueLookup = {pageflow:'client/payment/selectBudgetValue', width: 500, height: 500, 
+    this.budgetValueLookup = {pageflow:'client/payment/selectBudgetValue', width: 650, height: 370, 
     title:"Выбор статуса плательщика", 
         callback:function(){
             me.budgetStatusValueSelected();
@@ -177,7 +185,7 @@ Client.Payment.PaymentOrderEdit.initLookups = function () {
         }
     }
 
-    this.budgetBaseValueLookup = {pageflow:'client/payment/selectedBudgetBaseValue', width: 500, height: 500, 
+    this.budgetBaseValueLookup = {pageflow:'client/payment/selectedBudgetBaseValue', width: 650, height: 370, 
     title:"Выбор основания платежа", 
         callback:function(){
             me.budgetBaseValueSelected();
@@ -185,13 +193,19 @@ Client.Payment.PaymentOrderEdit.initLookups = function () {
         }
     }
 
-    this.budgetPeriodPrefixLookup = {pageflow:'client/payment/selectBudgetPeriodPrefix', width: 500, height: 500, 
+    this.budgetStatusValueLookup = {
+        //FIXME: fill out
+    }
+    
+    this.budgetPeriodPrefixLookup = {pageflow:'client/payment/selectBudgetPeriodPrefix', width: 650, height: 370, 
     title:"Выбор налогового периода", 
         callback:function(){
             me.budgetPeriodPrefixSelected();
             me.onChangeForm();   
         }
     }
+
+
 }
 
 /**
@@ -1062,11 +1076,9 @@ Client.Payment.PaymentOrderEdit.showTemplateSelectLookup = function () {
     if ((payRegisterID != null) && (payRegisterID != "")){
         var params = getNewMap();
         params.put('clientId', getInputParams("clientId"));
-        Lookup.showLookup(this.elkTemplateSelect.id, 'client/payment/selectTemplate', 'Выбор шаблона',
-            650, 370, this.onTemplateSelected, params);
+        this.showCustomLookup(this.templateLookup, '', false, params);
     } else {
-        Lookup.showLookup(this.elkTemplateSelect.id, 'client/payment/selectTemplate', 'Выбор шаблона',
-         650, 370, this.onTemplateSelected);
+        this.showCustomLookup(this.templateLookup);
     }
 };
 
@@ -1403,11 +1415,7 @@ Client.Payment.PaymentOrderEdit.onRecipientFieldsEdited = function () {
 Client.Payment.PaymentOrderEdit.showRecipientBankBicSelectLookup = function () {
     // WHelper.mask();
     // showExtendedLookup(elkRecipientBankBicSelect.id, 680, 370, false);
-    Lookup.showLookup(this.elkRecipientBankBicSelect.id, 'client/payment/selectBankBic', 'Выбор БИКа банка получателя',
-     650, 370, function(){
-        Client.Payment.PaymentOrderEdit.onRecipientBankSelected();
-        Client.Payment.PaymentOrderEdit.onChangeForm();
-    });
+    this.showCustomLookup(this.recipientBankBicLookup);
 };
 
 /**
@@ -3073,7 +3081,7 @@ var currentBudgetPaymentEdit;
 /*
  Поиск данных для бюджетного платежа
  */
-Client.Payment.PaymentOrderEdit.onBudgetPayValuesSearch = function (lookupElement, editElement, errorLabel, brief) {
+Client.Payment.PaymentOrderEdit.onBudgetPayValuesSearch = function (lookup, editElement, errorLabel, brief) {
     if (this.isOnChangeEnabled) {
         var keyword = editElement.getText();
         if (keyword.length > 0) {
@@ -3097,7 +3105,7 @@ Client.Payment.PaymentOrderEdit.onBudgetPayValuesSearch = function (lookupElemen
                             editElement.setValue(response.get('Result').get(0).get('CODE'));
                         })
                     }  else if (length > 1) {
-                        showExtendedLookup(lookupElement.id, 650, 370, false, keyword);
+                        this.showCustomLookup(lookup);
                     }  else {
                         errorLabel.show();
                     }
@@ -3134,7 +3142,7 @@ Client.Payment.PaymentOrderEdit.onBudgetPayValueFound = function (params){
             this.currentBudgetPaymentEdit.setValue(params.get('Result').get(0).get('CODE'));
         })
     }  else if (length > 1) {
-        showExtendedLookup(currentBudgetPaymentLookup.id, 650, 370, false, keyword);
+        showExtendedLookup(currentBudgetPaymentLookup.id, 650, 370, false, keyword);//FIXME: when lookup type has been set?
     }  else {
         this.currentBudgetPaymentErrorLabel.show();
     }
@@ -3242,12 +3250,7 @@ Client.Payment.PaymentOrderEdit.onMultiButtonClick = function () {
 Client.Payment.PaymentOrderEdit.showBudgetStatusValueLookup = function () {
     // WHelper.mask();
     // showExtendedLookup(this.elkBudgetStatusValue.getLookupId(), 650, 370, false, '');
-
-    Lookup.showLookup(this.elkBudgetStatusValue.id, 'client/payment/selectBudgetValue',
-    'Выбор статуса плательщика', 650, 370, function(){
-        Client.Payment.PaymentOrderEdit.budgetStatusValueSelected();
-        Client.Payment.PaymentOrderEdit.onChangeForm(); 
-    });
+    this.showCustomLookup(this.budgetValueLookup);//TODO: check type
 }
 /** Выбрано значение в лукапе Статус Плательщика (101) */
 Client.Payment.PaymentOrderEdit.budgetStatusValueSelected = function () {
@@ -3262,15 +3265,14 @@ Client.Payment.PaymentOrderEdit.budgetStatusValueSelected = function () {
 }
 /** Изменено значение в поле Статус Плательщика (101) */
 Client.Payment.PaymentOrderEdit.budgetStatusValueChanged = function () {
-    this.onBudgetPayValuesSearch(this.elkBudgetStatusValue, this.edtBudgetStatusValue,
+    this.onBudgetPayValuesSearch(this.budgetStatusValueLookup, this.edtBudgetStatusValue,
         this.lblBudgetStatusValueError, "taxStatus");
     this._isBudgetPayment();
 }
 
 /** Клик на ссылке Основание Платежа (106) */
 Client.Payment.PaymentOrderEdit.showBudgetBaseValueLookup = function (){
-    // WHelper.mask();
-    showExtendedLookup(this.elkBudgetBaseValue.getLookupId(), 650, 370, false, '');
+    this.showCustomLookup(this.budgetBaseValueLookup);
 }
 /** Выбрано значение в лукапе Основание Платежа (106) */
 Client.Payment.PaymentOrderEdit.budgetBaseValueSelected = function () {
@@ -3287,7 +3289,7 @@ Client.Payment.PaymentOrderEdit.budgetBaseValueSelected = function () {
 /** Изменено значение в поле Основание Платежа (106) */
 Client.Payment.PaymentOrderEdit.budgetBaseValueChanged = function () {
     this.checkBudgetPeriodFormat();
-    this.onBudgetPayValuesSearch(this.elkBudgetBaseValue, this.edtBudgetBase,
+    this.onBudgetPayValuesSearch(this.budgetBaseValueLookup, this.edtBudgetBase,
         this.lblBudgetBaseValueError, "taxReason");
     this._isBudgetPayment();
 }
@@ -3295,13 +3297,7 @@ Client.Payment.PaymentOrderEdit.budgetBaseValueChanged = function () {
 /** Клик на ссылке Основание Платежа (106) */
 Client.Payment.PaymentOrderEdit.showBudgetPeriodPrefixLookup = function (){
     if (!this.checkCustoms(this.edtBudgetBase.getText())) {
-        // WHelper.mask();
-        // showExtendedLookup(this.elkBudgetPeriodPrefix.getLookupId(), 650, 370, false, '');
-            Lookup.showLookup(this.elkBudgetPeriodPrefix.id, 'client/payment/selectBudgetPeriodPrefix', 
-                'Выбор налогового периода', 650, 370, function(){
-            Client.Payment.PaymentOrderEdit.budgetPeriodPrefixSelected();
-            Client.Payment.PaymentOrderEdit.onChangeForm();
-    });
+        this.showCustomLookup(this.budgetPeriodPrefixLookup);
     }
 }
 /** Выбрано значение в лукапе Префикс Налоговый период (107) */
@@ -3316,7 +3312,7 @@ Client.Payment.PaymentOrderEdit.budgetPeriodPrefixSelected = function (){
 }
 /** Изменено значение в поле Префикс Налоговый период (107) */
 Client.Payment.PaymentOrderEdit.budgetPeriodPrefixChanged = function (){
-    this.onBudgetPayValuesSearch(this.elkBudgetPeriodPrefix, this.edtBudgetPeriodPrefix,
+    this.onBudgetPayValuesSearch(this.budgetPeriodPrefixLookup, this.edtBudgetPeriodPrefix,
         this.lblBudgetPeriodPrefixError, "taxPeriod");
     this._isBudgetPayment();
 }
