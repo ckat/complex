@@ -1,3 +1,11 @@
+January 6 2013:
+ ☐ Apache Cayenne (retreiving employees from HR with paging)
+ ☐ PL-SQL function retreiving all employees with salary more than supplied
+ ☐ JQuery UI (use templates)
+ ☐ Examine Underscope templates underhood
+ ☐ JPA bindings for HR scheme
+ ☐ JPA criteria filtering (age, name, )
+ 
 7 November 2012:
  ☐ Understand Git pull, fetch, push, stage area, merging
  ☐ Complete CV
