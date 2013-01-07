@@ -11,20 +11,20 @@
     <packaging>ejb</packaging>
 
     <dependencies>
-        <dependency>
+<!--         <dependency>
             <groupId>org.apache.cayenne</groupId>
             <artifactId>cayenne-server</artifactId>
             <version>3.0.2</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <version>11.2.0.2.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>6.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

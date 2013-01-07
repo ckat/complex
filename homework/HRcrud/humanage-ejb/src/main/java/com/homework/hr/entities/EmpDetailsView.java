@@ -1,7 +1,12 @@
 package com.homework.hr.entities;
 
-import com.homework.hr.entities.auto._EmpDetailsView;
 
-public class EmpDetailsView extends _EmpDetailsView {
+
+public class EmpDetailsView  {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7504878270224909826L;
 
 }

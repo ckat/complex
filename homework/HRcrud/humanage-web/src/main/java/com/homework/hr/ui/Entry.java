@@ -2,24 +2,21 @@ package com.homework.hr.ui;
 
 import java.io.IOException;
 
-import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.homework.hr.dao.EmployeeDAO;
-
 /**
  * Servlet implementation class Entry
  */
-@WebServlet("/")
+@WebServlet("/start")
 public class Entry extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	@EJB
-	EmployeeDAO employeeDAO;
+
     /**
      * Default constructor. 
      */
@@ -31,7 +28,8 @@ public class Entry extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getOutputStream().print(employeeDAO.getVersion());
+		RequestDispatcher rd = request.getRequestDispatcher("index.html");
+		rd.forward(request, response);
 	}
 
 	/**

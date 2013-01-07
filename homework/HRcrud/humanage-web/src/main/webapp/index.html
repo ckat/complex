@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HR workout</title>
+<style type="text/css">
+.invalid{
+	color:red;
+}
+
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+$( document ).ready( function() {
+    $( '#sayHello' ).click( function( event ) {
+        event.preventDefault();
+
+        var result = $( '#emp-list' ),
+            pageNum = $.trim( $( '#page-num' ).val() );
+
+        result.removeClass( 'invalid' );
+
+        if( !pageNum || !pageNum.length ) {
+            result.addClass( 'invalid' ).text( 'A page num is required!' );
+            return;
+        }
+        //console.log("clicked: " + name);
+        $.ajax( 'employee', {
+            dataType:'json',
+            data:{type:'list', count:'10', page: pageNum},
+            type:'GET',
+            success:function ( data ) {
+                var rendered = '<ul>';
+                
+                data.forEach(function(item)
+                		{rendered += '<li>'+ item.firstName + ' ' + item.hireDate + '</li>';}
+                );
+                rendered += "</ul>"
+                
+                $( '#emp-list' ).html(rendered);
+            }
+        })
+        .error( function(err) {
+            console.log("error: " + err);
+        });
+    });
+}); 
+</script>
+</head>
+<body>
+	<input type="text" id="page-num" value="0"/>
+	<input type="button" value="request" id="sayHello"/>
+	<div id="emp-list"></div>
+</body>
+</html>

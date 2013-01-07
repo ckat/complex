@@ -1,7 +1,10 @@
 package com.homework.hr.entities;
 
-import com.homework.hr.entities.auto._Regions;
+public class Regions  {
 
-public class Regions extends _Regions {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3423970954304162299L;
 
 }

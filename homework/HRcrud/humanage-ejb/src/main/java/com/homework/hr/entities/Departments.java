@@ -1,7 +1,12 @@
 package com.homework.hr.entities;
 
-import com.homework.hr.entities.auto._Departments;
 
-public class Departments extends _Departments {
+
+public class Departments {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6463054821638066218L;
 
 }
