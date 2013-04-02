@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-Deploy to JBoss</actionName>
+            <displayName>Deploy to JBoss</displayName>
+            <goals>
+                <goal>jboss-as:deploy</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Start Jboss</actionName>
+            <displayName>Start Jboss</displayName>
+            <goals>
+                <goal>jboss-as:run</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Redeploy to JBos</actionName>
+            <displayName>Redeploy to JBos</displayName>
+            <goals>
+                <goal>jboss-as:redeploy</goal>
+            </goals>
+        </action>
+    </actions>
