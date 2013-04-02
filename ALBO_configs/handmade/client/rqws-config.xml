@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<root>
-		<timerInterval>100</timerInterval>
-	<requestExpireHours>20</requestExpireHours>
-</root>
