@@ -1,45 +1,96 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
+<!--     <parent>
         <groupId>com.homework.hr</groupId>
         <artifactId>hr-app</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-    </parent>
-    
+    </parent> -->
+    <groupId>com.homework.hr</groupId>
     <artifactId>humanage-web</artifactId>
     <packaging>war</packaging>
-
+    <version>0.0.1-SNAPSHOT</version>
     <dependencies>
-        <dependency>
-            <groupId>com.homework.hr</groupId>
-            <artifactId>humanage-ejb</artifactId>
-            <type>ejb</type>
-            <scope>provided</scope>
-        </dependency>
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.2.2</version>
         </dependency>
         <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>3.4</version>
+        </dependency>      
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
+            <version>6.0</version>
             <scope>provided</scope>
         </dependency>
+<!--        <dependency>
+            <groupId>jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>3.5.3</version>
+        </dependency>-->
     </dependencies>
     <build>
         <sourceDirectory>src</sourceDirectory>
         <plugins>
-           <plugin>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>${version.war.plugin}</version>
-            <configuration>
-               <!-- Java EE 6 doesn't require web.xml, Maven needs to catch 
-               up! -->
-               <failOnMissingWebXml>false</failOnMissingWebXml>
-           </configuration>
-       </plugin>
-   </plugins>
-</build>
+<!--            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${version.war.plugin}</version>
+                <configuration>
+                     Java EE 6 doesn't require web.xml, Maven needs to catch 
+                    up! 
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>7.4.Final</version>
+                <configuration>
+                    <jbossHome>d:\work\distribs\jboss-as-7.1.1.Final</jbossHome>
+                    <hostname>127.0.0.1</hostname>
+                    <port>9999</port>
+                </configuration>
+                 <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <url>http://repository.primefaces.org/</url>
+            <id>PrimeFaces-maven-lib</id>
+            <layout>default</layout>
+            <name>Repository for library PrimeFaces-maven-lib</name>
+        </repository>
+    </repositories>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 </project>

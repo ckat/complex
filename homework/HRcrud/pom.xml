@@ -27,7 +27,7 @@
 
         <!-- JBoss dependency versions -->
         <version.org.jboss.arquillian>1.0.0.Final</version.org.jboss.arquillian>
-        <version.org.jboss.as.plugins.maven.plugin>7.3.Final</version.org.jboss.as.plugins.maven.plugin>
+        <version.org.jboss.as.plugins.maven.plugin>7.4.Final</version.org.jboss.as.plugins.maven.plugin>
         <version.org.jboss.as>7.1.1.Final</version.org.jboss.as>
         <version.org.jboss.bom>1.0.0.Final</version.org.jboss.bom>
         <version.org.jboss.ejb.client>7.1.1.Final</version.org.jboss.ejb.client>
@@ -38,8 +38,6 @@
 
 
     <modules>
-        <module>humanage-ear</module>
-        <module>humanage-ejb</module>
         <module>humanage-web</module>
     </modules>
 

@@ -1,4 +1,4 @@
-package com.homework.hr.entities;
+package ru.homework.hr.entities;
 
 public class Regions  {
 
